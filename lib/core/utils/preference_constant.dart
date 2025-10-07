@@ -1,0 +1,30 @@
+class PreferenceConstant {
+  static const String token = "accessToken";
+  static const String refreshToken = "refreshToken";
+  static const String onBoardingFlow = "onBoardingFlow";
+  static const String language = "language";
+  static const String loginData = "loginData";
+  static const String skippedLoginData = "skippedLoginData";
+  static const String verificationData = "verificationData";
+  static const String recordList = "recordList";
+  static const String businessData = "businessData";
+  static const String branchBusinessData = "branchBusinessData";
+  static const String taxDetails = "taxDetails";
+  static const String isScanDone = "isScanDone";
+  static const String scannedData = "scannedData";
+  static const String cartList = "cartList";
+  static const String isLogin = "isLogin";
+  static const String isBusinessLogin = "isBusinessLogin";
+  static const String firstName = "firstName";
+  static const String lastName = "lastName";
+  static const String email = "email";
+  static const String password = "password";
+  static const String userLocation = "userLocation";
+  static const String deviceId = "deviceId";
+  static const String businessPartnerId = "businessPartnerId";
+  static const String branchId = "branchId";
+  static const String orderResponse = "orderResponse";
+  static const String orderId = "orderId";
+  static const String orderBranchId = "orderBranchId";
+  static const String paymentDone = "paymentDone";
+}
