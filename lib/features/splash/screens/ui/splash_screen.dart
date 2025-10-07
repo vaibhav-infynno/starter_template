@@ -62,8 +62,6 @@ class _SplashPageState extends State<SplashPage>
     super.dispose();
   }
 
-  // kjsdbfs djh
-
   @override
   Widget build(BuildContext context) {
     return BlocListener<SplashCubit, SplashState>(
