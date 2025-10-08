@@ -24,10 +24,21 @@ class $AssetsLogoGen {
   List<dynamic> get values => [appLogo, splashIcon];
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/no_internet.json
+  String get noInternet => 'assets/lottie/no_internet.json';
+
+  /// List of all assets
+  List<String> get values => [noInternet];
+}
+
 class Assets {
   const Assets._();
 
   static const $AssetsLogoGen logo = $AssetsLogoGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class AssetGenImage {
