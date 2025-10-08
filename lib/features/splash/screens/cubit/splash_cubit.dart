@@ -5,11 +5,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:starter_app/core/error/failure_mapper.dart';
-import 'package:starter_app/core/error/failures.dart';
-import 'package:starter_app/core/routes/app_router.dart';
-import 'package:starter_app/core/utils/preference_utils.dart';
 
+import '../../../../core/error/failure_mapper.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/routes/app_router.dart';
+import '../../../../core/utils/preference_utils.dart';
 import '../../../../cubit/internet/internet_cubit.dart';
 import '../../repositories/splash_repository.dart';
 

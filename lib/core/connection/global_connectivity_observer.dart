@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:starter_app/core/utils/show_snackbar.dart';
-import 'package:starter_app/gen/assets.gen.dart';
+import 'package:starter_app/core/helpers/extensions/responsive_extensions.dart';
+import 'package:starter_app/cubit/theme_cubit.dart';
 
 import '../../cubit/internet/internet_cubit.dart';
+import '../../gen/assets.gen.dart';
+import '../utils/show_snackbar.dart';
 
 class GlobalConnectivityObserver extends NavigatorObserver {
   final InternetCubit internetCubit;
@@ -22,8 +25,12 @@ class GlobalConnectivityObserver extends NavigatorObserver {
         _isDialogVisible = false;
 
         // Close the dialog safely if it’s still open
-        if (Navigator.of(context, rootNavigator: true).canPop()) {
-          Navigator.of(context, rootNavigator: true).pop();
+        // if (Navigator.of(context, rootNavigator: true).canPop()) {
+        //   Navigator.of(context, rootNavigator: true).pop();
+        // }
+
+        if (context.router.canPop()) {
+          context.router.pop();
         }
 
         showFlushbar(context: context, message: 'Back Online', isError: false);
@@ -54,25 +61,25 @@ class GlobalConnectivityObserver extends NavigatorObserver {
                   repeat: true,
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  "No Internet Connection",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
+                context.autoSizeText(
+                  text: "No Internet Connection",
+                  style: context.textTheme.titleLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  "Please check your network settings and try again.",
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+                context.autoSizeText(
+                  text: "Please check your network settings and try again.",
+                  style: context.textTheme.bodyMedium!,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton.icon(
                   onPressed: () {
                     // Optionally trigger connectivity check manually
+                    internetCubit.checkConnectivity();
+                    // If still offline, keep the dialog open
                     showFlushbar(
                       context: context,
                       message: 'Still offline. Please reconnect.',

@@ -5,14 +5,14 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:starter_app/core/connection/connection_checker.dart';
-import 'package:starter_app/core/constant/api_constant.dart';
-import 'package:starter_app/core/error/exceptions.dart';
-import 'package:starter_app/core/network/interceptor/token_interceptor.dart';
-import 'package:starter_app/core/network/repository/api_repository.dart';
 
+import '../../connection/connection_checker.dart';
+import '../../constant/api_constant.dart';
+import '../../error/exceptions.dart';
 import '../interceptor/network_interceptor.dart';
 import '../interceptor/retry_interceptor.dart';
+import '../interceptor/token_interceptor.dart';
+import 'api_repository.dart';
 
 class ApiRepositoryImpl implements ApiRepository {
   final Dio _dio;

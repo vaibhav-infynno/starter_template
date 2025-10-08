@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:starter_app/core/error/failures.dart';
 
 import '../../../../core/di/injection.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/routes/app_router.dart';
+import '../../../../core/utils/preference_utils.dart';
 import '../../../../core/utils/show_snackbar.dart';
 import '../../../../cubit/internet/internet_cubit.dart';
 import '../../../../gen/assets.gen.dart';
@@ -66,7 +68,11 @@ class _SplashPageState extends State<SplashPage>
   Widget build(BuildContext context) {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
-        if (state is SplashNavigate) {
+        final isOnboarded = getBool('isOnboarded');
+        if (!isOnboarded) {
+          context.router.replaceAll([const OnboardingRoute()]);
+          return;
+        } else if (state is SplashNavigate) {
           context.router.replaceAll([state.route]);
         } else if (state is SplashError) {
           state.failure.type == FailureType.network

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:starter_app/core/style/text_styles.dart';
-import 'package:starter_app/core/theme/app_theme.dart';
+
+import '../style/text_styles.dart';
+import 'app_theme.dart';
 
 class LightTheme extends AppTheme {
   @override

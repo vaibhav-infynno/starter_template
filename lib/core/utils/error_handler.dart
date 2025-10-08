@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:starter_app/core/error/failures.dart';
-import 'package:starter_app/core/utils/show_snackbar.dart';
+
+import '../error/failures.dart';
+import 'show_snackbar.dart';
 
 void handleFailure(BuildContext context, Failure failure) {
   if (!context.mounted) return;

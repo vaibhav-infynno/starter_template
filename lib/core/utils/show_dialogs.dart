@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 /// Utility class for showing dialogs and confirmation popups throughout the app.
@@ -74,8 +75,8 @@ class ShowDialogs {
 
   /// Hide any currently open dialog (useful for dismissing loading).
   static void hideLoadingDialog(BuildContext context) {
-    if (Navigator.of(context).canPop()) {
-      Navigator.of(context).pop();
+    if (context.router.canPop()) {
+      context.router.pop();
     }
   }
 

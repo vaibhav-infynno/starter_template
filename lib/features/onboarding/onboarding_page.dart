@@ -5,13 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starter_app/core/helpers/extensions/locale_extensions.dart';
-import 'package:starter_app/core/routes/app_router.dart';
-import 'package:starter_app/core/selector/language_switcher.dart';
-import 'package:starter_app/core/utils/preference_utils.dart';
-import 'package:starter_app/core/utils/responsive.dart';
+import 'package:starter_app/core/helpers/extensions/responsive_extensions.dart';
 import 'package:starter_app/cubit/theme_cubit.dart';
 
+import '../../core/routes/app_router.dart';
+import '../../core/selector/language_switcher.dart';
 import '../../core/theme/dark_theme.dart';
+import '../../core/utils/preference_utils.dart';
 import '../../core/utils/show_snackbar.dart';
 import '../../cubit/internet/internet_cubit.dart';
 
@@ -21,20 +21,19 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final responsive = Responsive()..init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Welcome',
+          context.loc.welcome,
           style: context.textTheme.labelLarge?.copyWith(
             color: context.colors.primary,
             fontWeight: FontWeight.w600,
           ),
         ),
-        actions: [LanguageSwitcher(responsive: responsive)],
+        actions: [LanguageSwitcher()],
       ),
       body: Padding(
-        padding: responsive.symmetricPadding,
+        padding: context.symmetricPadding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,18 +42,18 @@ class OnboardingPage extends StatelessWidget {
               'Locale: ${context.loc.localeName}',
               style: context.textTheme.displayLarge?.copyWith(
                 color: context.colors.primary,
-                fontSize: responsive.scaleFont(24),
+                fontSize: context.scaleFont(24),
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: responsive.mediumSpacing),
+            SizedBox(height: context.mediumSpacing),
             CupertinoSwitch(
               value: context.theme is DarkTheme,
               onChanged: (value) => context.toggleTheme(),
               activeTrackColor: context.colors.primary,
               thumbColor: context.colors.background,
             ),
-            SizedBox(height: responsive.mediumSpacing),
+            SizedBox(height: context.mediumSpacing),
             BlocSelector<InternetCubit, InternetState, bool>(
               selector: (state) {
                 if (state.isConnected) {
@@ -64,17 +63,19 @@ class OnboardingPage extends StatelessWidget {
               },
               builder: (context, isConnected) {
                 return Text(
-                  isConnected ? 'Connected' : 'Disconnected',
+                  isConnected
+                      ? context.loc.connected
+                      : context.loc.disconnected,
                   style: context.textTheme.bodyLarge?.copyWith(
                     color: isConnected
                         ? context.colors.success
                         : context.colors.error,
-                    fontSize: responsive.scaleFont(16),
+                    fontSize: context.scaleFont(16),
                   ),
                 );
               },
             ),
-            SizedBox(height: responsive.mediumSpacing),
+            SizedBox(height: context.mediumSpacing),
             FilledButton(
               onPressed: () async {
                 try {
@@ -96,14 +97,14 @@ class OnboardingPage extends StatelessWidget {
               },
               style: context.theme.filledButtonTheme.style?.copyWith(
                 minimumSize: WidgetStateProperty.all(
-                  Size(responsive.scale(200), responsive.scaleHeight(48)),
+                  Size(context.scale(200), context.scaleHeight(48)),
                 ),
               ),
               child: Text(
                 'Next',
                 style: context.textTheme.labelLarge?.copyWith(
                   color: context.colors.buttonTextColor,
-                  fontSize: responsive.scaleFont(16),
+                  fontSize: context.scaleFont(16),
                 ),
               ),
             ),
