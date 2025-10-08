@@ -4,16 +4,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:starter_app/core/extensions/locale_extensions.dart';
+import 'package:starter_app/core/helpers/extensions/locale_extensions.dart';
 import 'package:starter_app/core/routes/app_router.dart';
 import 'package:starter_app/core/selector/language_switcher.dart';
-import 'package:starter_app/core/theme/theme_cubit.dart';
 import 'package:starter_app/core/utils/preference_utils.dart';
 import 'package:starter_app/core/utils/responsive.dart';
+import 'package:starter_app/cubit/theme_cubit.dart';
 
 import '../../core/theme/dark_theme.dart';
 import '../../core/utils/show_snackbar.dart';
-import '../../cubit/internet_cubit.dart';
+import '../../cubit/internet/internet_cubit.dart';
 
 @RoutePage()
 class OnboardingPage extends StatelessWidget {

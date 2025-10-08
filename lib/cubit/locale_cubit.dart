@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../utils/preference_utils.dart';
+import '../core/utils/preference_utils.dart';
 
 class LocaleCubit extends Cubit<Locale?> {
   static const String _localeKey = "selected_locale";

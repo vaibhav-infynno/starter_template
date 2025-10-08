@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:starter_app/core/utils/preference_utils.dart';
 
-import 'app_theme.dart';
-import 'dark_theme.dart';
-import 'light_theme.dart';
+import '../core/theme/app_theme.dart';
+import '../core/theme/dark_theme.dart';
+import '../core/theme/light_theme.dart';
 
 extension ThemeExtension on BuildContext {
   AppColors get colors => read<ThemeCubit>().state.colors;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/theme/theme_cubit.dart';
 import '../../../../core/utils/responsive.dart';
-import '../cubit/locale_cubit.dart';
+import '../../cubit/locale_cubit.dart';
+import '../../cubit/theme_cubit.dart';
 
 class LanguageSwitcher extends StatelessWidget {
   final Responsive responsive;

@@ -7,14 +7,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:starter_app/core/utils/responsive.dart';
 
 import 'core/connection/global_connectivity_observer.dart';
-import 'core/cubit/locale_cubit.dart';
 import 'core/di/injection.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/auth_guard.dart';
 import 'core/theme/app_theme.dart';
-import 'core/theme/theme_cubit.dart';
 import 'core/utils/preference_utils.dart';
-import 'cubit/internet_cubit.dart';
+import 'cubit/internet/internet_cubit.dart';
+import 'cubit/locale_cubit.dart';
+import 'cubit/theme_cubit.dart';
 import 'l10n/l10n.dart';
 
 void main() async {

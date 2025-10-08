@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:starter_app/core/routes/app_router.dart';
 import 'package:starter_app/core/utils/show_snackbar.dart';
 
-import '../../cubit/internet_cubit.dart';
+import '../../cubit/internet/internet_cubit.dart';
 
 class GlobalConnectivityObserver extends NavigatorObserver {
   final InternetCubit internetCubit;

@@ -10,7 +10,7 @@ import 'package:starter_app/core/error/failures.dart';
 import 'package:starter_app/core/routes/app_router.dart';
 import 'package:starter_app/core/utils/preference_utils.dart';
 
-import '../../../../cubit/internet_cubit.dart';
+import '../../../../cubit/internet/internet_cubit.dart';
 import '../../repositories/splash_repository.dart';
 
 part 'splash_state.dart';

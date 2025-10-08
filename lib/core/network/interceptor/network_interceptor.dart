@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import '../../core/utils/preference_constant.dart';
-import '../../core/utils/preference_utils.dart';
+import '../../constant/preference_constant.dart';
+import '../../utils/preference_utils.dart';
 import 'retry_interceptor.dart';
 import 'token_interceptor.dart';
 
