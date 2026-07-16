@@ -1,0 +1,17 @@
+name: widgets
+description: Reusable base UI elements, buttons, input fields, shimmers.
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  google_fonts: ^8.2.0
+  shimmer: ^3.0.0
+  flutter_svg: ^2.2.1
+  cached_network_image: ^3.4.1

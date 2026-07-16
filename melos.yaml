@@ -1,0 +1,22 @@
+name: starter_template
+
+packages:
+  - apps/**
+  - packages/**
+
+scripts:
+  postclean:
+    run: melos exec -- "flutter clean"
+    description: Run clean in all packages.
+
+  bootstrap:
+    run: melos bootstrap
+    description: Initialize and link all packages in the workspace.
+
+  codegen:
+    run: melos exec --depends-on="build_runner" --concurrency=3 -- "dart run build_runner build --delete-conflicting-outputs"
+    description: Run build_runner in all packages concurrently.
+
+  analyze:
+    run: melos exec -- "flutter analyze"
+    description: Analyze Dart code in all packages.
